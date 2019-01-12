@@ -4,10 +4,11 @@ import pygame
 class Ship():
     """飞船类，用来管理飞船的行为"""
 
-    def __init__(self, screen):
+    def __init__(self, ai_settings, screen):
         """需要一个代表整个窗口的surface来初始化飞船，并设置其初始位置"""
 
         self.screen = screen
+        self.ai_settings = ai_settings
         # 获取一个表示飞船图像的对象
         self.image = pygame.image.load("images/ship.bmp")
         # 获取图片的外接矩形
@@ -22,6 +23,7 @@ class Ship():
         self.moving_right = False
         # 飞船向左移动的标志
         self.moving_left = False
+        self.center = float(self.rect.centerx)
 
     def blit_me(self):
         """在指定位置绘制飞船"""
@@ -30,6 +32,8 @@ class Ship():
 
     def update(self):
         if self.moving_right:
-            self.rect.centerx += 1
+            self.center += self.ai_settings.ship_speed_factor
         if self.moving_left:
-            self.rect.centerx -= 1
+            self.center -= self.ai_settings.ship_speed_factor
+
+        self.rect.centerx = self.center
