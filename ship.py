@@ -18,8 +18,14 @@ class Ship():
         # 设置飞船图形的初始位置，将飞船图像设置在屏幕的底部中央
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+        # 飞船向右移动的标志
+        self.moving_right = False
 
     def blit_me(self):
         """在指定位置绘制飞船"""
 
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+        if self.moving_right:
+            self.rect.centerx += 1
