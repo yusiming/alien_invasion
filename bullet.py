@@ -9,7 +9,7 @@ class Bullet(Sprite):
         super(Bullet, self).__init__()
         self.screen = screen
         # 创建一个表示子弹的矩形
-        self.rect = pygame.Rect(0, 0, ai_settings.self.bullet_width, ai_settings.self.bullet_height)
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, ai_settings.bullet_height)
         # 设置子弹的位置
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
