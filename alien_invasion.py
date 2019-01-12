@@ -17,7 +17,7 @@ def run_game():
     screen.fill(ai_settings.bg_color)
     while True:
         # 检测事件
-        gf.check_events()
+        gf.check_events(ship)
         # 更新屏幕
         gf.update_screen(ai_settings, screen, ship)
 
