@@ -31,9 +31,11 @@ class Ship():
         self.screen.blit(self.image, self.rect)
 
     def update(self):
-        if self.moving_right:
+        # 只有当右移标志为True，并且飞船右侧边缘的坐标小于整个屏幕的右侧边缘的坐标时，才更新位置
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_left:
+        # 只有当左移标志为True，并且飞船左侧边缘的坐标大于0时，才更新位置
+        if self.moving_left and self.rect.left > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
         self.rect.centerx = self.center
