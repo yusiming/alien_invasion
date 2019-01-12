@@ -20,6 +20,8 @@ class Ship():
         self.rect.bottom = self.screen_rect.bottom
         # 飞船向右移动的标志
         self.moving_right = False
+        # 飞船向左移动的标志
+        self.moving_left = False
 
     def blit_me(self):
         """在指定位置绘制飞船"""
@@ -29,3 +31,5 @@ class Ship():
     def update(self):
         if self.moving_right:
             self.rect.centerx += 1
+        if self.moving_left:
+            self.rect.centerx -= 1
