@@ -18,6 +18,8 @@ def run_game():
     while True:
         # 检测事件
         gf.check_events(ship)
+        # 更新飞船的位置
+        ship.update()
         # 更新屏幕
         gf.update_screen(ai_settings, screen, ship)
 
