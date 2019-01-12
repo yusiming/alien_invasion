@@ -1,16 +1,19 @@
 import sys
 import pygame
+from settings import Settings
 
 
 def run_game():
     """游戏的主函数，从这里开始运行游戏"""
 
     pygame.init()
-    screen = pygame.display.set_mode((1200, 800))
-    pygame.display.set_caption("外星人入侵")
-    bg_color = (230, 230, 230)
+    # 创建设置类
+    ai_settings = Settings()
+    # 得到表示整个窗口的surface
+    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    pygame.display.set_caption(ai_settings.caption)
     # 设置窗口背景颜色
-    screen.fill(bg_color)
+    screen.fill(ai_settings.bg_color)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
