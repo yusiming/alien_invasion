@@ -13,7 +13,7 @@ def run_game():
     # 得到表示整个窗口的surface
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     # 创建飞船
-    ship = Ship(screen)
+    ship = Ship(ai_settings, screen)
     screen.fill(ai_settings.bg_color)
     while True:
         # 检测事件
