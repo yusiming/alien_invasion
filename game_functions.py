@@ -10,8 +10,12 @@ def check_events(ship):
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                # 向右移动飞船
-                ship.rect.centerx += 1
+                # 将飞船的右移标志设置为True
+                ship.moving_right = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                # 将飞船的右移标志设置为False
+                ship.moving_right = False
 
 
 def update_screen(ai_settings, screen, ship):
